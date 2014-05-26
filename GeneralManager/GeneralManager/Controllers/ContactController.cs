@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using GeneralManager.Models;
+using ContactManager.Filters;
 
 namespace GeneralManager.Controllers
 {
