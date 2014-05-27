@@ -144,6 +144,10 @@
     <Compile Include="Migrations\201405252346106_Initial.Designer.cs">
       <DependentUpon>201405252346106_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405262203220_Initial1.cs" />
+    <Compile Include="Migrations\201405262203220_Initial1.Designer.cs">
+      <DependentUpon>201405262203220_Initial1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\GeneralManagerContext.cs" />
@@ -209,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201405252346106_Initial.resx">
       <DependentUpon>201405252346106_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405262203220_Initial1.resx">
+      <DependentUpon>201405262203220_Initial1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

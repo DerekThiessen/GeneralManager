@@ -26,7 +26,7 @@ namespace GeneralManager.Migrations
 					   State = "WA",
 					   Zip = "10999",
 					   Email = "debra@example.com",
-					   Twitter = "debra_example"
+					   Phone = "555-555-555"
 				   },
 					new Contact
 					{
@@ -37,7 +37,7 @@ namespace GeneralManager.Migrations
 						State = "WA",
 						Zip = "10999",
 						Email = "thorsten@example.com",
-						Twitter = "thorsten_example"
+						Phone = "555-555-555"
 					},
 					new Contact
 					{
@@ -48,7 +48,7 @@ namespace GeneralManager.Migrations
 						State = "WA",
 						Zip = "10999",
 						Email = "yuhong@example.com",
-						Twitter = "yuhong_example"
+						Phone = "555-555-555"
 					},
 					new Contact
 					{
@@ -59,7 +59,7 @@ namespace GeneralManager.Migrations
 						State = "WA",
 						Zip = "10999",
 						Email = "jon@example.com",
-						Twitter = "jon_example"
+						Phone = "555-555-555"
 					},
 					new Contact
 					{
@@ -70,7 +70,7 @@ namespace GeneralManager.Migrations
 						State = "WA",
 						Zip = "10999",
 						Email = "diliana@example.com",
-						Twitter = "diliana_example"
+						Phone = "555-555-555"
 					}
 				);
 		}

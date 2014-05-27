@@ -23,7 +23,7 @@ namespace GeneralManager.Models
 		public string State { get; set; }
 		public string Zip { get; set; }
 		public string Email { get; set; }
-		public string Twitter { get; set; }
+		public string Phone { get; set; }
 		public string Self
 		{
 			get { return string.Format(CultureInfo.CurrentCulture, "api/contact/{0}", this.Id); }
