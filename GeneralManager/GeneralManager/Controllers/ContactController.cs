@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using GeneralManager.Models;
-using ContactManager.Filters;
+using GeneralManager.Filters;
 
 namespace GeneralManager.Controllers
 {
@@ -37,13 +37,10 @@ namespace GeneralManager.Controllers
         }
 
         // PUT api/Contacts/5
+		[ValidateHttpAntiForgeryToken]
+		[ValidateModelFilter]
         public IHttpActionResult PutContact(int id, Contact contact)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             if (id != contact.Id)
             {
                 return BadRequest();
@@ -72,13 +69,10 @@ namespace GeneralManager.Controllers
 
         // POST api/Contacts
         [ResponseType(typeof(Contact))]
+		[ValidateHttpAntiForgeryToken]
+		[ValidateModelFilter]
         public IHttpActionResult PostContact(Contact contact)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
             db.Contacts.Add(contact);
             db.SaveChanges();
 
@@ -87,6 +81,7 @@ namespace GeneralManager.Controllers
 
         // DELETE api/Contacts/5
         [ResponseType(typeof(Contact))]
+		[ValidateHttpAntiForgeryToken]
         public IHttpActionResult DeleteContact(int id)
         {
             Contact contact = db.Contacts.Find(id);
