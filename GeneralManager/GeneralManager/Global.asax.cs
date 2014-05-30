@@ -8,6 +8,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Data.Entity;
 using GeneralManager.Models;
+using GeneralManager.Filters;
+using System.Web.Http.Filters;
 
 namespace GeneralManager
 {
@@ -15,11 +17,18 @@ namespace GeneralManager
     {
         protected void Application_Start()
         {
+			RegisterWebApiFilters(GlobalConfiguration.Configuration.Filters);
 			AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+		private static void RegisterWebApiFilters(HttpFilterCollection filters)
+		{
+			filters.Add(new CheckModelForNullAttribute());
+			filters.Add(new ValidateModelFilterAttribute());
+		}
     }
 }

@@ -38,7 +38,6 @@ namespace GeneralManager.Controllers
 
         // PUT api/Contacts/5
 		[ValidateHttpAntiForgeryToken]
-		[ValidateModelFilter]
         public IHttpActionResult PutContact(int id, Contact contact)
         {
             if (id != contact.Id)
@@ -70,7 +69,6 @@ namespace GeneralManager.Controllers
         // POST api/Contacts
         [ResponseType(typeof(Contact))]
 		[ValidateHttpAntiForgeryToken]
-		[ValidateModelFilter]
         public IHttpActionResult PostContact(Contact contact)
         {
             db.Contacts.Add(contact);
