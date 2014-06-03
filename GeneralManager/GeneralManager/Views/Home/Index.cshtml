@@ -53,59 +53,61 @@
 	</script>
 }
 <div class="container">
-	<div class="row" style="border-bottom: 1px solid black;">
-		<div class="col-md-3">@Html.LabelFor(model => model.First().FullName)</div>
-		<div class="col-md-2">@Html.LabelFor(model => model.First().Address)</div>
-		<div class="col-md-1">@Html.LabelFor(model => model.First().City)</div>
-		<div class="col-md-1">@Html.LabelFor(model => model.First().State)</div>
-		<div class="col-md-1">@Html.LabelFor(model => model.First().Zip)</div>
-		<div class="col-md-2">@Html.LabelFor(model => model.First().Email)</div>
-		<div class="col-md-2">@Html.LabelFor(model => model.First().Phone)</div>
-	</div>
 	<div class="row">
-		<form id="addContact" data-bind="submit: addContact">
-			@Html.ValidationSummary()
-			<fieldset>
-				<div class="col-md-3">
-					@Html.TextBoxFor(model => model.First().FirstName, new { Value = "" })
-					@Html.ValidationMessageFor(model => model.First().FirstName,null, new { @class = "help-inline" })
-					@Html.TextBox("LastName")
+		<div class="col-lg-9">
+			<div id="contacts" data-bind="foreach: contacts">
+				<div class="row" style="border-bottom: 1px solid gray;">
+					<div class="col-lg-5" style="padding: 0px">
+						<strong data-bind="text: FullName"></strong>
+						<div data-bind="text: $data.MailingAddress || 'Mailing Address?'"></div>
+					</div>
+					<div class="col-lg-2" data-bind="if: $data.Email"><a data-bind="attr: { href: 'mailto:' + Email }, text: Email"></a></div>
+					<div class="col-lg-2" data-bind="ifnot: $data.Email"><span>Email?</span></div>
+					<div class="col-lg-2" data-bind="text: $data.Phone || 'Phone?'"></div>
+					<div class="col-lg-1"><a data-bind="attr: { href: Self }, click: $root.removeContact" class="ui-state-default ui-corner-all">Remove</a></div>
 				</div>
-				<div class="col-md-2">
-					<input type="text" name="Address">
-				</div>
-				<div class="col-md-1">
-					<input type="text" name="City">
-				</div>
-				<div class="col-md-1">
-					<input type="text" name="State">
-				</div>
-				<div class="col-md-1">
-					<input type="text" name="Zip" value="Zip">
-				</div>
-				<div class="col-md-2">
-					<input type="text" name="Email" value="Email">
-				</div>
-				<div class="col-md-2">
-					@Html.TextBoxFor(model => model.First().Phone, new { Value = "" })
-				</div>
-				<div class="col-md-1">
-					<input type="submit" value="Add" />
-				</div>
-			</fieldset>
-		</form>
-	</div>
-	<div id="contacts" data-bind="foreach: contacts">
-		<div class="row">
-			<div data-bind="text: FullName" class="col-md-3"></div>
-			<div data-bind="text: $data.Address || 'Address?'" class="col-md-2"></div>
-			<div data-bind="text: $data.City || 'City?'" class="col-md-1"></div>
-			<div data-bind="text: $data.State || 'State?'" class="col-md-1"></div>
-			<div data-bind="text: $data.Zip || 'Zip?'" class="col-md-1"></div>
-			<div data-bind="if: $data.Email" class="col-md-2"><a data-bind="attr: { href: 'mailto:' + Email }, text: Email"></a></div>
-			<div data-bind="ifnot: $data.Email" class="col-md-2"><span>Email?</span></div>
-			<div data-bind="text: $data.Phone || 'Phone?'" class="col-md-2" style="width: 125px;"></div>
-			<div class="col-md-1"><a data-bind="attr: { href: Self }, click: $root.removeContact" class="ui-state-default ui-corner-all">Remove</a></div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<form id="addContact" data-bind="submit: addContact">
+				<fieldset>
+					<div>
+						@Html.LabelFor(model => model.First().FirstName)
+						@Html.TextBoxFor(model => model.First().FirstName, new { @Value = "", @class = "form-control" })
+					</div>
+					<div>
+						@Html.LabelFor(model => model.First().LastName)
+						@Html.TextBoxFor(model => model.First().LastName, new { @Value = "", @class = "form-control" })
+					</div>
+					<div>
+						@Html.LabelFor(model => model.First().Address)
+						<input type="text" name="Address" class="form-control" />
+					</div>
+					<div>
+						@Html.LabelFor(model => model.First().City)
+						<input type="text" name="City" class="form-control" />
+					</div>
+					<div>
+						@Html.LabelFor(model => model.First().State)
+						<input type="text" name="State" class="form-control" />
+					</div>
+					<div>
+						@Html.LabelFor(model => model.First().Zip)
+						<input type="text" name="Zip" class="form-control" />
+					</div>
+					<div>
+						@Html.LabelFor(model => model.First().Email)
+						<input type="text" name="Email" class="form-control" />
+					</div>
+					<div>
+						@Html.LabelFor(model => model.First().Phone)
+						<input type="text" name="Phone" class="form-control" />
+					</div>
+					<div>
+						<input type="submit" value="Add" class="form-control" />
+					</div>
+				</fieldset>
+			</form>
 		</div>
 	</div>
 </div>

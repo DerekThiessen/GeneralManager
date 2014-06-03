@@ -30,6 +30,13 @@ namespace GeneralManager.Models
 		public string State { get; set; }
 		[Required(ErrorMessage="Zip is required")]
 		public string Zip { get; set; }
+		public string MailingAddress
+		{
+			get
+			{
+				return Address + " " + City + ", " + State + " " + Zip;
+			}
+		}
 		[Required(ErrorMessage="Email is required")]
 		public string Email { get; set; }
 		[Required(ErrorMessage="Phone is required")]
